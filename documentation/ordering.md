@@ -6,6 +6,8 @@ It seems like the bread and butter of this app will come down to having a good s
 
 i.e. we need to protect against circular path structures in which a user is stuck alternating between two tabs.
 
+[Chrome Tabs Documentation](https://developer.chrome.com/docs/extensions/reference/tabs/#method-create)
+
 ## Persistance
 
 We will need to figure out how to restore the chronological order of tabs in the event that Chrome is killed via `^Q`, is relaunched, and the user selects the `restore tabs` option. We'll have to consider diving into caching strategies for this. 
@@ -16,4 +18,4 @@ As a workaround, any open tabs that are not accounted for within the active wind
 
 The chronological list of tabs will only include the tabs seen in the _active_ browser window.
 - If a user has more than one instances of chrome, Track Tab will only work for the Tabs within the active (is active the right word?) instance of Chrome.
-- 
+
