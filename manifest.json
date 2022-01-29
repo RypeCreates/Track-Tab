@@ -6,6 +6,13 @@
   "background": {
     "service_worker": "background.js"
   },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-scripts.js"],
+      "run_at": "document_end"
+    }
+  ],
   "permissions": ["storage", "activeTab", "scripting", "tabs"],
   "action": {
     "default_popup": "popup.html",
@@ -22,5 +29,11 @@
     "48": "/images/get_started48.png",
     "128": "/images/get_started128.png"
   },
-  "options_page": "sandbox.html"
+  "options_page": "sandbox.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["/images/kirby.png"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
