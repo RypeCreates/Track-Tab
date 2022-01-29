@@ -1,0 +1,36 @@
+body {
+  font-family: "Ubuntu", sans-serif;
+  text-align: center;
+}
+
+.title-bar {
+  background-color: rgb(102 103 171);
+  margin: 12px;
+  border-radius: 20px;
+  width: auto;
+}
+
+h1 {
+  color: white;
+  font-style: bold;
+  font-size: 72px;
+  margin: 12px;
+  padding: 12px;
+}
+
+p {
+  font-size: 24px;
+}
+
+button {
+  height: 40px;
+  width: 40px;
+  outline: none;
+  margin: 10px;
+  border: none;
+  border-radius: 2px;
+}
+
+button.current {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px black;
+}
