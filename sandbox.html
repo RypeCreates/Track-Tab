@@ -9,16 +9,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-  <link href="./styles.css" rel="stylesheet">
+  <link href="/assets/css/styles.css" rel="stylesheet">
+  <script type="module" src="sandbox.js"></script>
+  <script type="module" src="ordering.js"></script>
+  <script type="module" src="popup.js"></script>
 </head>
 
 <body>
   <div class="title-bar">
     <h1>Track Tab Sandbox</h1>
   </div>
-  <div class="body">
-    <p>Test something out!</p>
+  <p>Test something out!</p>
+  <div>
     <button id="changeColor"></button>
-    <script src="popup.js"></script>
+  </div>
+  <div class="button-group">
+    <button id="changeTab" style="background-color: coral;"></button>
+    <label for="javascript">Change Tab</label>
   </div>
 </body>

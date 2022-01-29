@@ -1,0 +1,19 @@
+{
+  "name": "track-tab",
+  "version": "1.0.0",
+  "description": "A tab surfing solution for Chrome",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RypeCreates/Track-Tab.git"
+  },
+  "author": "Ryan Petit & Malik Shalash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RypeCreates/Track-Tab/issues"
+  },
+  "homepage": "https://github.com/RypeCreates/Track-Tab#readme"
+}

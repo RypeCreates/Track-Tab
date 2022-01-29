@@ -34,3 +34,12 @@ button {
 button.current {
   box-shadow: 0 0 0 2px white, 0 0 0 4px black;
 }
+
+.button-group {
+  margin: auto;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 28px;
+  text-align: left;
+  display: inline;
+}
