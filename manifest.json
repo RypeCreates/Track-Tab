@@ -11,9 +11,7 @@
     "activeTab",
     "scripting",
     "tabs",
-    "notifications",
-    "http://*/",
-    "https://*/"
+    "notifications"
   ],
   "action": {
     "default_popup": "popup.html",

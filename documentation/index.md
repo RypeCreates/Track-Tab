@@ -12,6 +12,8 @@ See: [Scaffolded Extension Project](https://developer.chrome.com/docs/extensions
 
 We'll want to double check each of these and make sure that there isn't some sort of hidden default feature in Chrome that would make a feature pointless to work on.
 
+### [Pop-up](./popup.md)
+
 ### [Chronological Tab Ordering](./ordering.md)
 
 ### [Highlighting](./highlighting.md)

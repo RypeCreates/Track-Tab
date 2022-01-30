@@ -7,5 +7,5 @@ let nav = new Navigation();
 changeTab.addEventListener("click", async () => {
   debugger;
   console.log("Selected Change Tab");
-  console.log(nav.getAllTabs());
+  console.log(nav.getAllTabsAsync());
 });
