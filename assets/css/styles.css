@@ -24,6 +24,7 @@ p {
 
 button {
   height: 40px;
+  vertical-align: middle;
   width: 40px;
   outline: none;
   margin: 10px;
@@ -42,4 +43,18 @@ button.current {
   font-size: 28px;
   text-align: left;
   display: inline;
+}
+
+ul {
+  align-content: left; 
+  margin-right: 100px;
+}
+
+li {
+  height: 50px;
+  line-height:50px;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 36px;
 }
