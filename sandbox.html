@@ -1,24 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandbox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./assets/css/styles.css" rel="stylesheet" />
+    <link href="/assets/css/bootstrap.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sandbox</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-  <link href="./styles.css" rel="stylesheet">
-</head>
+  <body>
+    <div class="title-bar">
+      <h1>Track Tab Sandbox</h1>
+    </div>
 
-<body>
-  <div class="title-bar">
-    <h1>Track Tab Sandbox</h1>
-  </div>
-  <div class="body">
-    <p>Test something out!</p>
-    <button id="changeColor"></button>
-    <script src="popup.js"></script>
-  </div>
-</body>
+    <div class="body">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <p>Test something out!</p>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <button id="changeColor"></button>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row justify-content-center">
+          <h1>Upload Photo Associations</h1>
+        </div>
+        <div class="d-flex row justify-content-center">
+          <div class="d-flex col-6 justify-content-end">
+            <p>Most Recent Tab:</p>
+          </div>
+          <div class="col-6">
+            <input type="file" accept=".jpg, .png" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="popup.js"></script>
+  <script src="file-upload.js"></script>
+</html>

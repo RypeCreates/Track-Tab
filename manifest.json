@@ -32,7 +32,7 @@
   "options_page": "sandbox.html",
   "web_accessible_resources": [
     {
-      "resources": ["/images/kirby.png"],
+      "resources": ["/images/tab_images/*"],
       "matches": ["<all_urls>"]
     }
   ]
