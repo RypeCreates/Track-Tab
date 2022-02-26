@@ -3,48 +3,36 @@ class Navigation {
 
     constructor() 
     {
+        console.log("Called navigation constructor...");
         this.initializeTabList((queriedTabs) => {
-            // find the current tab in the queried tabsList 
-            let currentTab = queriedTabs.find(function(tab) {
-                return tab.active == true;
-            });
-
-            this.currentTab = new TrackTab(currentTab);
             this.tabsList = new Array();
 
             let prevTab = null;
-
             queriedTabs.forEach(t => {
-                let newTab = new TrackTab(t);
+                let newTab = new CanTab(t);
                 
-                // TODO this could probably be refactored eventually
                 if(prevTab){
-                    newTab.prevId = prevTab.tab.id;
-                    prevTab.nextId = newTab.tab.id;
+                    newTab.prevTab = prevTab;
+                    prevTab.nextTab = newTab;
                 } 
                 this.tabsList.push(newTab);  
                 prevTab = newTab;
             })
 
             // close the loop
-            this.tabsList[this.tabsList.length - 1].nextId = this.tabsList[0].tab.id;
-            this.tabsList[0].prevId = this.tabsList[this.tabsList.length - 1].tab.id;
+            this.tabsList[this.tabsList.length - 1].nextTab = this.tabsList[0];
+            this.tabsList[0].prevTab = this.tabsList[this.tabsList.length - 1];
 
-            // TODO add a conditional to only log while in sandbox
-            console.log("(constructor) tabsList: " + JSON.stringify(this.tabsList));
+            // find the current tab in the queried tabsList 
+            this.currentTab = this.tabsList.find(function(canTab) {
+                return canTab.val.active === true;
+            });
         });
     }
 
-    async getAllTabsAsync() {
-        let queryOptions = {};
-        let tabs = await chrome.tabs.query(queryOptions);
-        
-        return tabs;
-    }
-
-    // TODO this can probably just be combined with getAllTabsAsync
     async initializeTabList(callback) {
-        let tabsList = await this.getAllTabsAsync();
+        let queryOptions = {};
+        let tabsList = await chrome.tabs.query(queryOptions);
         callback(tabsList);
     }
     
@@ -56,14 +44,47 @@ class Navigation {
         let [tab] = await chrome.tabs.query(queryOptions);
         return tab;
     }
+
+    async highlightTabAsync(tabIndex, callBack) {
+
+        var object = new Object(); 
+        object.tabs = [tabIndex];
+        object.windowId = this.currentTab.val.windowId;
+
+        await chrome.tabs.highlight(object, callBack);
+    }
+
+    getCurrentTab() {
+        console.log("Current Tab:" + JSON.stringify(this.currentTab.val));
+        return this.currentTab;
+    }
+
+    getTabById(id) {
+        return this.tabsList.find(x => x.id === id);
+    }
+
+    goNext() {
+        debugger;
+        console.log("(goNext) expected next tab id: " + this.currentTab.nextTab.val.id);
+        this.currentTab = this.currentTab.nextTab;
+
+        this.highlightTabAsync(this.currentTab.val.index, () => {
+            console.log("(goNext) Set current tab id: " + this.currentTab.val.id);
+        });
+    }
+
+    prependTab(tab)
+    {
+        // TODO tab will be added in between currentTab and its respective prev
+    }
 }
 
-class TrackTab {
-    constructor(tab)
+class CanTab {
+    constructor(tab, prevTab, nextTab)
     {
-        this.tab = tab;
-        this.prevId = null;
-        this.nextId = null;  
+        this.val = tab;
+        this.prevTab = prevTab ?? null;
+        this.nextTab = nextTab ?? null;  
     }
 }
 
@@ -92,7 +113,7 @@ class TrackTab {
 
 
 
-export {TrackTab as Tab, Navigation}
+export {CanTab as Tab, Navigation}
 
 //#endregion
 
