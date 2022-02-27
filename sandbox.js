@@ -1,16 +1,16 @@
-import { Navigation } from "./ordering.js";
+import { Navigator } from "./modules/Navigator.js";
 
-// let nextTab = document.getElementById("changeTab");
-let nav = new Navigation();
+let nav = new Navigator();
 
 // When the button is clicked, inject setPageBackgroundColor into current page
 nextTab.addEventListener("click", async () => {
-  debugger;
   nav.goNext();
 });
 
-currentTab.addEventListener("click", async() =>{
-  debugger;
-  var currentTabUrl = nav.getCurrentTab().val.url
-  console.log("Current Tab: " + currentTabUrl);
-})
+prevTab.addEventListener("click", async () => {
+  nav.goPrev();
+});
+
+options.addEventListener("click", () => {
+  parent.location = "options.html";
+});
