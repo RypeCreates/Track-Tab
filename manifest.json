@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "manifest_version": 3,
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   },
   "permissions": [
     "storage",
@@ -28,5 +29,28 @@
     "48": "/assets/images/get_started48.png",
     "128": "/assets/images/get_started128.png"
   },
-  "options_page": "sandbox.html"
+  "options_page": "sandbox.html",
+  "commands": {
+    "go-previous-tab": {
+      "suggested_key": {
+        "default": "Alt+Left",
+        "mac": "Alt+Left"
+      },
+      "description": "Go to the previous tab in the chain"
+    },
+    "go-next-tab": {
+      "suggested_key": {
+        "default": "Alt+Right",
+        "mac": "Alt+Right"
+      },
+      "description": "Go to the next tab in the chain"
+    },
+    "rebuild-index": {
+      "suggested_key": {
+        "default": "Alt+Down",
+        "mac": "Alt+Down"
+      },
+      "description": "Rebuild the chain"
+    }
+  }
 }

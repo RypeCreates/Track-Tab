@@ -64,7 +64,7 @@ class Navigator {
     return this.tabsList.find((x) => x.id === id);
   }
 
-  goNext() {
+  async goNext() {
     this.currentTab = this.currentTab.nextTab;
 
     this.highlightTabAsync(this.currentTab.index, () => {
@@ -82,6 +82,34 @@ class Navigator {
 
   prepend(tab) {
     // TODO tab will be added in between currentTab and its respective prev
+  }
+
+  popTab(id) {
+    debugger;
+    var index = this.getTabById(id).index;
+    // TODO need to adjust prevTab and nextTab properties here as part of the splice
+
+    this.tabsList.splice(index,1);
+  }
+
+  /// https://stackoverflow.com/questions/586182/how-to-insert-an-item-into-an-array-at-a-specific-index-javascript
+  pushTab(id) {
+    debugger;
+    // TODO need to adjust prevTab and nextTab properties here as part of the insert 
+    let t = this.getTabById(id);
+
+    // find previous tab
+    
+    // find next tab
+
+    let canTab = new CanTab(t);
+    this.tabsList.splice(t.index, 0, t);
+
+  }
+
+  delay(time) {
+    console.log("delay for "+time+" milliseconds");
+    return new Promise(resolve => setTimeout(resolve, time));
   }
 }
 
