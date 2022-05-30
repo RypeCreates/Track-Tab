@@ -33,22 +33,22 @@
   "commands": {
     "go-previous-tab": {
       "suggested_key": {
-        "default": "Alt+Left",
-        "mac": "Alt+Left"
+        "default": "Ctrl+Shift+Left",
+        "mac": "Command+Shift+Left"
       },
       "description": "Go to the previous tab in the chain"
     },
     "go-next-tab": {
       "suggested_key": {
-        "default": "Alt+Right",
-        "mac": "Alt+Right"
+        "default": "Ctrl+Shift+Right",
+        "mac": "Command+Shift+Right"
       },
       "description": "Go to the next tab in the chain"
     },
     "rebuild-index": {
       "suggested_key": {
-        "default": "Alt+Down",
-        "mac": "Alt+Down"
+        "default": "Ctrl+Shift+Down",
+        "mac": "Command+Shift+Down"
       },
       "description": "Rebuild the chain"
     }

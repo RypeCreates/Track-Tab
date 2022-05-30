@@ -106,11 +106,6 @@ class Navigator {
     this.tabsList.splice(t.index, 0, t);
 
   }
-
-  delay(time) {
-    console.log("delay for "+time+" milliseconds");
-    return new Promise(resolve => setTimeout(resolve, time));
-  }
 }
 
 export { Navigator as Navigator };

@@ -1,10 +1,10 @@
 import { Navigator } from "./modules/Navigator.js";
 
-// TODO
-// This will create a navigator instance and handle all background listeners
-// keybindings will be read from the config here
-
 let nav = new Navigator();
+
+/**
+ * INSTALLATION AND STARTUP LISTENERS
+ */
 
 chrome.runtime.onInstalled.addListener(() => {
   console.log("CanTab Installed!");
@@ -22,6 +22,11 @@ chrome.runtime.onStartup.addListener(() => {
     nav = new Navigator();
   }
 })
+
+/**
+ * ANY TAB NAVIGATION OUTSIDE OF THE CANTAB SHORTCUTS WILL RESULT IN A RESTRUCTURING OF THE LINKED LIST.
+ * THE BELOW LISTENERS ARE FOR USER ACTIONS OUTSIDE OF CANTAB SHORTCUTS 
+ */
 
 // note that generic object o has property tabIds that is an array of ints
 chrome.tabs.onHighlighted.addListener((o) => { 
@@ -41,14 +46,34 @@ chrome.tabs.onCreated.addListener((o) => {
   console.log("Tab with id "+o.id+" CREATED.");
 });
 
-chrome.tabs.onRemoved.addListener(
-  (o) => {
+chrome.tabs.onRemoved.addListener((o) => {
     debugger;
     let tabId = o.tabIds[0];
     nav.popTab(tabId);
-  }
-)
+});
+
+/**
+ * COMMAND LISTENERS
+ */
 
 chrome.commands.onCommand.addListener((command) => {
+  debugger;
   console.log(`Command: ${command} triggered`);
+  let p = Promise.resolve();
+
+  switch(command)
+  {
+    case "go-previous-tab":
+      p = p.then(nav.goPrev());
+      break;
+    case "go-next-tab":
+      p = p.then(nav.goNext());
+      break;
+    case "rebuild-index":
+      p = p.then(nav = new Navigator());
+      break;
+    default:
+      console.log("Untracted command registered in manifest: "+command);
+      break;
+  }
 });

@@ -22,8 +22,7 @@ loop.addEventListener("click", () => {
   for(let i = 0, p = Promise.resolve(); i < nav.tabsList.length; i++)
   {
     p = p.then(() => nav.goNext())
-         .then(() => nav.delay(100))
+         .then(() => delay(100))
          .then(() => nav.GetCurrentTabData());
   }
-
 });
